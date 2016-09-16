@@ -1,0 +1,103 @@
+body {
+  font-family: "Source Sans Pro", serif; }
+
+.background-image {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.table {
+  display: table;
+  width: 100%;
+  height: 100%; }
+  .table .table-cell {
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle; }
+
+a {
+  -webkit-transition: color 320ms ease;
+  -moz-transition: color 320ms ease;
+  -ms-transition: color 320ms ease;
+  -o-transition: color 320ms ease;
+  transition: color 320ms ease; }
+
+.blogastic-header-top {
+  background-color: #4c4c4c;
+  padding-top: 5px;
+  padding-bottom: 5px; }
+  .blogastic-header-top-content {
+    color: white;
+    font-size: 0.875em;
+    font-weight: 400; }
+    .blogastic-header-top-content ul {
+      margin: 0;
+      padding: 0; }
+      .blogastic-header-top-content ul li {
+        display: inline-block;
+        margin-left: 10px; }
+        .blogastic-header-top-content ul li a {
+          color: white; }
+        .blogastic-header-top-content ul li a:hover, .blogastic-header-top-content ul li a:focus {
+          list-style-type: none;
+          color: #d98e1f;
+          text-decoration: none; }
+
+.header-content {
+  border-bottom: 1px solid rgba(133, 133, 133, 0.3);
+  padding-bottom: 20px; }
+  .header-content .site-logo {
+    font-family: "Pacifico", cursive, Arial, serif;
+    color: #d98e1f;
+    font-size: 4em; }
+    .header-content .site-logo i {
+      font-size: 1.75em;
+      color: #875a17; }
+  .header-content .site-description {
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #858585;
+    margin-top: 12px; }
+
+.header-img-container {
+  display: block;
+  height: 320px;
+  width: 100%;
+  color: white; }
+  .header-img-container .title {
+    font-size: 1.875em;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); }
+
+.navbar-blogastic {
+  margin-bottom: 0; }
+  .navbar-blogastic li > a {
+    font-size: 1.1875em;
+    color: #d98e1f;
+    font-weight: 700;
+    text-transform: uppercase; }
+    .navbar-blogastic li > a:hover, .navbar-blogastic li > a:focus {
+      color: #875a17;
+      background-color: white; }
+  .navbar-blogastic .dropdown-menu > .active > a, .navbar-blogastic .dropdown-menu > .active > a:focus, .navbar-blogastic .dropdown-menu > .active > a:hover {
+    background-color: white;
+    color: #875a17; }
+  .navbar-blogastic a.dropdown-toggle:hover, .navbar-blogastic a.dropdown-toggle:focus,
+  .navbar-blogastic .open > a, .navbar-blogastic .open > a:focus, .navbar-blogastic .open > a:hover {
+    background-color: white; }
+  .navbar-blogastic .active > a, .navbar-blogastic .active > a:focus, .navbar-blogastic .active > a:hover {
+    color: #875a17; }
+  .navbar-blogastic .navbar-nav {
+    display: inline-block;
+    float: none; }
+  .navbar-blogastic .navbar-collapse {
+    text-align: center; }
+  .navbar-blogastic .navbar-toggle {
+    background-color: white; }
+    .navbar-blogastic .navbar-toggle .icon-bar {
+      background-color: #875a17; }
+
+/*# sourceMappingURL=blogastic.css.map */

@@ -87,6 +87,27 @@
 		
 		// Add a new field.
 		add_settings_field('category-icon-color', 'Choose favorite colors and icons for your categories!', 'blogastic_category_callback', 'blogastic_cat_options', 'blogastic-category-options');
+		
+		// Author options.
+		
+		// Register Author settings
+		register_setting('blogastic-author-support', 'author_picture');
+		register_setting('blogastic-author-support', 'name');
+		register_setting('blogastic-author-support', 'author_description');
+		register_setting('blogastic-author-support', 'twitter_handler', 'blogastic_sanitize_twitter_handler');
+		register_setting('blogastic-author-support', 'facebook_handler');
+		register_setting('blogastic-author-support', 'gplus_handler');
+		
+		// Add a new section.
+		add_settings_section('blogastic-author-options', 'Author options', 'blogastic_author_support_callback', 'blogastic_author');
+		
+		// Add a new fields.
+		add_settings_field('author_picture', 'Profile Picture', 'blogastic_author_picture_callback', 'blogastic_author', 'blogastic-author-options');
+		add_settings_field('name', 'Author Name', 'blogastic_author_name_callback', 'blogastic_author', 'blogastic-author-options');
+		add_settings_field('author_description', 'Author Description', 'blogastic_author_description_callback', 'blogastic_author', 'blogastic-author-options');
+		add_settings_field('twitter_handler', 'Twitter Handler', 'blogastic_author_t_callback', 'blogastic_author', 'blogastic-author-options');
+		add_settings_field('facebook_handler', 'Facebook Handler', 'blogastic_author_f_callback', 'blogastic_author', 'blogastic-author-options');
+		add_settings_field('gplus_handler', 'Google plus Handler', 'blogastic_author_gp_callback', 'blogastic_author', 'blogastic-author-options');
 	}	
 	
 	/*
@@ -103,6 +124,11 @@
 	// Category Support Options
 	function blogastic_category_support_callback(){
 		echo 'To change icon, click the exist icon and choose new one.';
+	}
+	
+	// Author Support Options
+	function blogastic_author_support_callback(){
+		echo 'Customize your Author Information';
 	}
 	
 	function blogastic_post_formats_callback(){
@@ -132,9 +158,54 @@
 		require get_template_directory() . '/inc/templates/blogastic_admin_page_category_template.php';
 	}
 	
+	function blogastic_author_picture_callback(){
+		$picture = esc_attr(get_option('author_picture'));
+		if(empty($picture)){
+			echo '<button type="button" class="button button-secondary" value="Upload Profile Picture" id="upload-button"><span class="blogastic-icon-button dashicons-before dashicons-format-image"></span> Upload Profile Picture</button>
+			<input type="hidden" id="profile-picture" name="author_picture" value="" />';
+		} else {
+			echo '<button type="button" class="button button-secondary" value="Replace Profile Picture" id="upload-button"><span class="blogastic-icon-button dashicons-before dashicons-format-image"></span> Replace Profile Picture</button>
+			<input type="hidden" id="profile-picture" name="author_picture" value="' . $picture . '" />
+			<button type="button" class="button button-secondary" value="Remove" id="remove-picture"><span class="blogastic-icon-button dashicons-before dashicons-no"></span> Remove</button>';
+		}
+	}
 	
+	function blogastic_author_name_callback(){
+		$name = esc_attr(get_option('name'));
+		echo '<input type="text" name="name" value="' . $name . '" placeholder="Name" />';
+	}
 	
+	function blogastic_author_description_callback(){
+		$description = esc_attr(get_option('author_description'));
+		echo '<input type="text" name="author_description" value="' . $description . '" placeholder="Description" /><p class="description">Write some description.</p>';
+	}
 	
+	function blogastic_author_t_callback(){
+		$twitter = esc_attr(get_option('twitter_handler'));
+		echo '<input type="text" name="twitter_handler" value="' . $twitter . '" placeholder="Twitter handler" /><p class="description">Input your Twitter username without the @ character.</p>';
+	}
+	
+	function blogastic_author_f_callback(){
+		$facebook = esc_attr(get_option('facebook_handler'));
+		echo '<input type="text" name="facebook_handler" value="' . $facebook . '" placeholder="Facebook handler" />';
+	}
+	
+	function blogastic_author_gp_callback(){
+		$gplus = esc_attr(get_option('gplus_handler'));
+		echo '<input type="text" name="gplus_handler" value="' . $gplus . '" placeholder="Google+ handler" />';
+	}
+	
+	/*
+	===========================================
+		Sanitization functions
+	===========================================
+	*/
+	
+	function blogastic_sanitize_twitter_handler($input){
+		$output = sanitize_text_field($input);
+		$output = str_replace('@', '', $output);
+		return $output;
+	}
 	
 	
 	

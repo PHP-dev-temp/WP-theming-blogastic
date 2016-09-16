@@ -18,3 +18,70 @@
 		<?php wp_head(); ?>		
 	</head>
 <body <?php body_class(); ?>>
+	<header>
+		<div class="container-fluid blogastic-header-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 blogastic-header-top-content text-right">
+						<ul>
+							<li><a href="#">SignUp</a> / <a href="#">SignIn</a></li>						
+							<?php if(!empty(get_option('twitter_handler'))): ?>
+								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							<?php endif; 
+							if(!empty(get_option('facebook_handler'))): ?>
+								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<?php endif; 
+							if(!empty(get_option('gplus_handler'))): ?>
+								<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+							<?php endif; ?>
+						</ul>
+					</div>
+				</div>
+			</div>	
+		</div><!--.blogastic-header-top-->
+		<div class="container-fluid header-content">
+			<h1 class="site-logo text-center"><?php bloginfo( 'name' ); ?> <i class="fa fa-pencil" aria-hidden="true"></i></h1>
+			<h2 class="site-description text-center"><?php bloginfo( 'description' ); ?></h2>
+		</div><!--.header-content-->
+		<div class="container-fluid">
+			<div class="row">			
+				<nav class="navbar navbar-blogastic" role="navigation">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<?php
+							if (has_nav_menu('primary')){
+								wp_nav_menu(array(
+									'menu'              => 'primary',
+									'theme_location'    => 'primary',
+									'depth'             => 2,
+									'container'         => 'div',
+									'container_class'   => 'collapse navbar-collapse',
+									'container_id'      => 'bs-example-navbar-collapse-1',
+									'menu_class'        => 'nav navbar-nav',
+									'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+									'walker'            => new wp_bootstrap_navwalker()
+								));	
+							}
+						?>
+					</div>
+				</nav>
+				<div class="header-img-container background-image text-center" style="background-image: url(<?php header_image(); ?>);">
+					<div class="table">
+						<div class="table-cell">
+							<div class="title-icon"><i class="fa fa-pencil" aria-hidden="true"></i></div>
+							<h1 class="title">Class title</h1>
+						</div><!-- .table-cell -->
+					</div><!-- .header-content -->
+				</div>
+			</div>
+		</div>
+	
+	</header>
+	

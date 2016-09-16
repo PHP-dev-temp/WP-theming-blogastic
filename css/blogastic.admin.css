@@ -1,35 +1,17 @@
-/*
-// Font Variables
-
-@import 'https://fonts.googleapis.com/css?family=Nunito';
-
-@font-face {
-    font-family: 'Bebas Neue';
-    src: url('../fonts/BebasNeue.otf');
-}
-@font-face {
-    font-family: 'Angelina';
-    src: url('../fonts/angelina.TTF');
-}
-
-$base-font: 'Nunito', serif;    // replace with Avenir font
-$bebas-neue: 'Bebas Neue', sans-serif;
-$angelina: 'Angelina', cursive, Arial, serif;
-*/
 .admin-cat-icon {
   -webkit-transition: background-color 320ms ease;
   -moz-transition: background-color 320ms ease;
   -ms-transition: background-color 320ms ease;
   -o-transition: background-color 320ms ease;
   transition: background-color 320ms ease;
-  font-size: 24px;
+  font-size: 18px;
   width: 40px;
   height: 40px;
   -webkit-border-radius: 20px;
   border-radius: 20px;
   background-clip: padding-box;
   /* stops bg color from leaking outside the border: */
-  background-color: gray;
+  background-color: #858585;
   color: white;
   text-align: center;
   line-height: 40px;
@@ -45,10 +27,10 @@ $angelina: 'Angelina', cursive, Arial, serif;
   position: absolute;
   width: 200px;
   height: 300px;
-  border: 1px solid gray;
-  -webkit-box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.5);
-  -moz-box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.5);
-  box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.5);
+  border: 1px solid #858585;
+  -webkit-box-shadow: 5px 5px 5px rgba(133, 133, 133, 0.5);
+  -moz-box-shadow: 5px 5px 5px rgba(133, 133, 133, 0.5);
+  box-shadow: 5px 5px 5px rgba(133, 133, 133, 0.5);
   background-color: white;
   z-index: 99; }
   .blogastic-fa-icon-picker-container {
@@ -67,5 +49,36 @@ $angelina: 'Angelina', cursive, Arial, serif;
     background-color: #4c4c4c;
     color: white;
     cursor: pointer; }
+
+.blogastic-author-preview {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  max-width: 400px;
+  border: 1px solid #858585;
+  -webkit-border-radius: 40px;
+  border-radius: 40px;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */ }
+
+.blogastic-icon-button:before {
+  margin-top: 3px;
+  margin-left: -3px; }
+
+.profile-picture {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  background-color: #858585;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.blogastic-description {
+  color: #4c4c4c; }
+
+.icons-wrapper {
+  display: block;
+  margin: auto; }
 
 /*# sourceMappingURL=blogastic.admin.css.map */

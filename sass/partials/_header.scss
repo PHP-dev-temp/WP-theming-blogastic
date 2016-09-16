@@ -1,0 +1,62 @@
+.blogastic-header-top{
+	background-color: $gray-dark;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	&-content{ 
+		color: white;
+		font-size: px2em(14);
+		font-weight: 400;
+		ul{
+			margin: 0;
+			padding: 0;
+			li{
+				display: inline-block;
+				margin-left: 10px;
+				a{
+					color:white;
+				} 
+				a:hover, a:focus{
+					list-style-type: none;
+					color:$orange;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+.header-content{
+	border-bottom: 1px solid rgba($gray, 0.3);
+	padding-bottom: 20px;
+	.site-logo{
+		font-family: $cursive-font;
+		color: $orange;
+		font-size: px2em(64);
+		i{
+			font-size: px2em(28);
+			color: $orange-dark;
+		}
+	}
+	.site-description{
+		font-size: px2em(16);
+		text-transform: uppercase;
+		font-weight: 400;
+		color: $gray;
+		margin-top: 12px;
+	}
+}
+
+.header-img-container{
+	display: block; 
+	height: 320px;
+	width: 100%;
+	color: white;
+	.title{
+		font-size: px2em(30);
+		font-weight: 300;
+		text-transform: uppercase;
+		@include text-shadow();
+	}
+	.title-icon{
+	
+	}
+}
