@@ -177,7 +177,7 @@
 	
 	function blogastic_author_description_callback(){
 		$description = esc_attr(get_option('author_description'));
-		echo '<input type="text" name="author_description" value="' . $description . '" placeholder="Description" /><p class="description">Write some description.</p>';
+		echo '<textarea rows="4" cols="50" name="author_description" value="' . $description . '" placeholder="Description">' . $description . '</textarea><p class="description">Write some description.</p>';
 	}
 	
 	function blogastic_author_t_callback(){

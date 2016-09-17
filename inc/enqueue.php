@@ -66,5 +66,5 @@
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.7', true);
 		wp_enqueue_script('sunset', get_template_directory_uri() . '/js/blogastic.js', array('jquery'), '1.0.0', true);
-		
+		wp_enqueue_script('ajaxcontactform', get_template_directory_uri() . '/js/blogastic.ajax.js', array('jquery'), '1.0.0', true);		
 	}

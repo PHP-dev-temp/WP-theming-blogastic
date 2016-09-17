@@ -24,15 +24,15 @@
 				<div class="row">
 					<div class="col-xs-12 blogastic-header-top-content text-right">
 						<ul>
-							<li><a href="#">SignUp</a> / <a href="#">SignIn</a></li>						
+							<li><a href="<?php echo wp_login_url(); ?>" title="Login">LogIn</a></li>						
 							<?php if(!empty(get_option('twitter_handler'))): ?>
-								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+								<li><a href="https://twitter.com/<?php echo(esc_attr(get_option('twitter_handler'))) ?>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 							<?php endif; 
 							if(!empty(get_option('facebook_handler'))): ?>
-								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li><a href="http://www.facebook.com/<?php echo(esc_attr(get_option('facebook_handler'))) ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 							<?php endif; 
 							if(!empty(get_option('gplus_handler'))): ?>
-								<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+								<li><a href="https://plus.google.com/<?php echo(esc_attr(get_option('gplus_handler'))) ?>" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
 							<?php endif; ?>
 						</ul>
 					</div>
@@ -73,7 +73,7 @@
 					</div>
 				</nav>
 				<div class="header-img-container background-image text-center" style="background-image: url(<?php header_image(); ?>);">
-					<div class="table">
+					<div class="table"><!-- Ovo ovde samo za category, tags, archive -->
 						<div class="table-cell">
 							<div class="title-icon"><i class="fa fa-pencil" aria-hidden="true"></i></div>
 							<h1 class="title">Class title</h1>

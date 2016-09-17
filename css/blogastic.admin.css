@@ -50,35 +50,45 @@
     color: white;
     cursor: pointer; }
 
-.blogastic-author-preview {
-  background-color: white;
-  padding: 20px;
-  text-align: center;
-  max-width: 400px;
-  border: 1px solid #858585;
-  -webkit-border-radius: 40px;
-  border-radius: 40px;
-  background-clip: padding-box;
-  /* stops bg color from leaking outside the border: */ }
-
 .blogastic-icon-button:before {
   margin-top: 3px;
   margin-left: -3px; }
 
-.profile-picture {
-  width: 300px;
-  height: 300px;
-  margin: auto;
-  background-color: #858585;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat; }
-
-.blogastic-description {
-  color: #4c4c4c; }
-
-.icons-wrapper {
-  display: block;
-  margin: auto; }
+.blogastic-author-preview-data {
+  background-color: #4c4c4c;
+  padding-bottom: 15px;
+  padding: 20px;
+  max-width: 400px;
+  color: #d98e1f; }
+  .blogastic-author-preview-data a, .blogastic-author-preview-data a:hover, .blogastic-author-preview-data a:focus {
+    display: inline-block;
+    margin: 5px; }
+  .blogastic-author-preview-data a, .blogastic-author-preview-data .footer-title {
+    color: white; }
+  .blogastic-author-preview-data a:hover, .blogastic-author-preview-data a:focus {
+    color: #d98e1f; }
+  .blogastic-author-preview-data .image-container {
+    width: 100%;
+    margin: 15px 0;
+    padding: 0;
+    text-align: center; }
+    .blogastic-author-preview-data .image-container img {
+      width: 300px;
+      height: auto; }
+  .blogastic-author-preview-data blockquote {
+    border-left: 3px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: 10px;
+    padding-left: 25px; }
+  .blogastic-author-preview-data blockquote:before {
+    display: block;
+    height: 0;
+    content: "\201D";
+    margin-left: -0.7em;
+    font: italic 200%/1 "Source Sans Pro", serif;
+    color: rgba(255, 255, 255, 0.5); }
+  .blogastic-author-preview-data cite {
+    color: white; }
+  .blogastic-author-preview-data .blogastic-username > a:first-child {
+    margin-left: 15px; }
 
 /*# sourceMappingURL=blogastic.admin.css.map */

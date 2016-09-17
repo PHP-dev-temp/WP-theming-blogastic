@@ -1,0 +1,55 @@
+.footer-container{
+	background-color: $gray-dark;
+	padding-bottom: 15px;
+	a, a:hover, a:focus{
+		display: inline-block;
+		margin: 5px;
+	}
+	a, .footer-title{
+		color: white;	
+	}
+	a:hover, a:focus{
+		color: $orange;	
+	}
+	.footer-content{
+		color: $orange;
+	}
+	.image-container{
+		width: 100%;
+		margin: 15px 0;
+		padding: 0;
+		text-align: center;
+	}
+	blockquote{
+		border-left: 3px solid rgba(white, 0.5);
+		margin-bottom: 10px;
+		padding-left: 25px;
+	}
+	blockquote:before{
+		display: block; 
+		height: 0; 
+		content: "\201D"; 
+		margin-left: -0.7em; 
+		font: italic 200%/1 $body-font; 
+		color: rgba(white, 0.5);
+	}
+	cite{
+		color: white;
+	}
+	.blogastic-username>a:first-child{
+		margin-left:15px;
+	}
+	.ajax-contact{
+		input, textarea, button{
+			background-color: transparent;
+			border-color: $orange;
+			color: $orange;
+		}
+		#form-messages{
+			font-size: px2em(14);
+		}
+		.error{
+			color: red;
+		}
+	}
+}

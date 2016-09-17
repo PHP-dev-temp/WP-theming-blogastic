@@ -45,36 +45,54 @@
 		cursor: pointer;
 	}
 }
-.blogastic-author-preview{
-	background-color: white;
-	padding:20px;
-	text-align: center;
-    max-width: 400px;
-    border: 1px solid $gray;
-	@include border-radius(40px);
-}
 .blogastic-icon-button:before{
 	margin-top: 3px; 
 	margin-left: -3px;
 }
-.profile-picture{
-	width:300px;
-	height:300px;
-	margin: auto;
-	background-color: $gray;
-	background-position: center center;
-	background-size: cover;
-	background-repeat: no-repeat; 
-}
-.blogastic-username{
 
-}
-.blogastic-description{
-	color: $gray-dark;
-}
-.image-container{
-}
-.icons-wrapper{
-	display: block;
-	margin: auto;
+.blogastic-author-preview-data{
+	background-color: $gray-dark;
+	padding-bottom: 15px;
+	padding:20px;
+    max-width: 400px;
+	color: $orange;
+	a, a:hover, a:focus{
+		display: inline-block;
+		margin: 5px;
+	}
+	a, .footer-title{
+		color: white;	
+	}
+	a:hover, a:focus{
+		color: $orange;	
+	}
+	.image-container{
+		width: 100%;
+		margin: 15px 0;
+		padding: 0;
+		text-align: center;
+		img{
+			width: 300px;
+			height: auto;
+		}
+	}
+	blockquote{
+		border-left: 3px solid rgba(white, 0.5);
+		margin-bottom: 10px;
+		padding-left: 25px;
+	}
+	blockquote:before{
+		display: block; 
+		height: 0; 
+		content: "\201D"; 
+		margin-left: -0.7em; 
+		font: italic 200%/1 $body-font; 
+		color: rgba(white, 0.5);
+	}
+	cite{
+		color: white;
+	}
+	.blogastic-username>a:first-child{
+		margin-left:15px;
+	}
 }
