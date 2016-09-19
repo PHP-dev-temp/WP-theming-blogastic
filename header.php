@@ -72,7 +72,7 @@
 						?>
 					</div>
 				</nav>
-				<div class="header-img-container background-image text-center" style="background-image: url(<?php header_image(); ?>);">
+				<div class="header-img-container background-image text-center" style="background-image: url(<?php echo((get_header_image()) ? get_header_image() : get_template_directory_uri() . '/css/img/default-header.jpg'); ?>);">
 					<div class="table"><!-- Ovo ovde samo za category, tags, archive -->
 						<div class="table-cell">
 							<div class="title-icon"><i class="fa fa-pencil" aria-hidden="true"></i></div>

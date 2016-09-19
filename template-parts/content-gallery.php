@@ -24,32 +24,15 @@
 						</div>					
 					<?php endforeach; ?>					
 				</div><!-- .carousel-inner -->				
-				<a class="left carousel-control" href="#post-gallery-<?php the_ID(); ?>" role="button" data-slide="prev">
-					<div class="table">
-						<div class="table-cell">
-							
-							<div class="preview-container">
-								<span class="thumbnail-container background-image"></span>
-								<span class="sunset-icon sunset-chevron-left" aria-hidden="true"></span>
-								<span class="sr-only">Previous</span>
-							</div><!-- .preview-container -->
-							
-						</div><!-- .table-cell -->
-					</div><!-- .table -->
-				</a>
-				<a class="right carousel-control" href="#post-gallery-<?php the_ID(); ?>" role="button" data-slide="next">
-					<div class="table">
-						<div class="table-cell">
-							
-							<div class="preview-container">
-								<span class="thumbnail-container background-image"></span>
-								<span class="sunset-icon sunset-chevron-right" aria-hidden="true"></span>
-								<span class="sr-only">Next</span>
-							</div><!-- .preview-container -->
-							
-						</div><!-- .table-cell -->
-					</div><!-- .table -->
-				</a>
+				  <!-- Controls -->
+				  <a class="left carousel-control" href="#post-gallery-<?php the_ID(); ?>" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				  </a>
+				  <a class="right carousel-control" href="#post-gallery-<?php the_ID(); ?>" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				  </a>
 				
 			</div><!-- .carousel -->			
 		<?php endif; ?>	
