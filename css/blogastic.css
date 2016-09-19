@@ -17,11 +17,15 @@ body {
     vertical-align: middle; }
 
 a {
+  color: #d98e1f;
   -webkit-transition: color 320ms ease;
   -moz-transition: color 320ms ease;
   -ms-transition: color 320ms ease;
   -o-transition: color 320ms ease;
   transition: color 320ms ease; }
+  a:hover, a:focus {
+    color: #875a17;
+    text-decoration: none; }
 
 .blogastic-header-top {
   background-color: #4c4c4c;
@@ -142,5 +146,95 @@ a {
     font-size: 0.875em; }
   .footer-container .ajax-contact .error {
     color: red; }
+
+.blogastic-base-conainer {
+  background-color: #fafafa; }
+
+.blogastic-posts-container .entry-header {
+  position: relative; }
+  .blogastic-posts-container .entry-header .category-meta {
+    position: absolute;
+    bottom: -32px;
+    left: 0;
+    right: 0; }
+.blogastic-posts-container article {
+  background-color: white;
+  margin: 75px 0;
+  -webkit-box-shadow: 0 0 10px rgba(133, 133, 133, 0.4);
+  -moz-box-shadow: 0 0 10px rgba(133, 133, 133, 0.4);
+  box-shadow: 0 0 10px rgba(133, 133, 133, 0.4); }
+  .blogastic-posts-container article .entry-content {
+    padding: 45px 15px 25px; }
+  .blogastic-posts-container article .entry-footer {
+    padding: 35px 15px 25px; }
+.blogastic-posts-container article.blogastic-format-quote {
+  background-color: #d8d8d8; }
+  .blogastic-posts-container article.blogastic-format-quote .btn-readmore {
+    background-color: #d8d8d8; }
+.blogastic-posts-container .standard-featured {
+  height: 350px;
+  width: 100%; }
+.blogastic-posts-container .entry-excerpt {
+  position: relative;
+  border-bottom: 1px solid rgba(133, 133, 133, 0.3);
+  padding: 15px 0 40px; }
+  .blogastic-posts-container .entry-excerpt p {
+    line-height: 1.8em;
+    font-size: 1em; }
+  .blogastic-posts-container .entry-excerpt .button-container {
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    right: 0; }
+
+.cat-title-icon {
+  margin: auto;
+  -webkit-transition: border-color 320ms ease;
+  -moz-transition: border-color 320ms ease;
+  -ms-transition: border-color 320ms ease;
+  -o-transition: border-color 320ms ease;
+  transition: border-color 320ms ease;
+  width: 80px;
+  height: 80px;
+  -webkit-border-radius: 40px;
+  border-radius: 40px;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid rgba(76, 76, 76, 0); }
+  .cat-title-icon:hover {
+    border-color: rgba(76, 76, 76, 0.5); }
+  .cat-title-icon a > i {
+    font-size: 32px;
+    line-height: 80px;
+    color: white; }
+
+.btn-readmore {
+  font-size: 18px;
+  display: inline-block;
+  padding: 10px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  background-color: white;
+  border: 1px solid rgba(133, 133, 133, 0.3);
+  width: 150px; }
+
+a.btn-readmore:hover, a.btn-readmore:focus {
+  color: #875a17; }
+
+.blogastic-tags {
+  color: #875a17;
+  margin-right: 10px; }
+
+.blogastic-comments {
+  color: #875a17;
+  margin-left: 10px; }
+
+.blogastic-audio-format iframe {
+  width: 100%;
+  height: 165px; }
 
 /*# sourceMappingURL=blogastic.css.map */

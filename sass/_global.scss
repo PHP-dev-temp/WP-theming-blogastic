@@ -18,5 +18,10 @@ body{
 	}
 }
 a{
+	color: $orange;
 	@include animate( color, 320ms );
+	&:hover, &:focus {
+		color: $orange-dark;
+		text-decoration: none;
+	}
 }

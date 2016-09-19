@@ -4,6 +4,7 @@
 		@package blogastictheme
 	*/	
 ?>
+
 	<div class="container-fluid footer-container">
 		<footer>
 			<div class="container footer-content">
