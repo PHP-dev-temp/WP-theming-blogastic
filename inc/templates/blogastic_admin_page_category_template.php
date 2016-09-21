@@ -26,7 +26,7 @@
 			$category[$name]['color'] = isset($catSetings[$name]['color']) ? $catSetings[$name]['color'] : 'grey';
 ?>			
 			<tr>
-				<td class="manage-column column-category" scope="col"><b><?php echo($name); ?></b></td>
+				<td class="manage-column column-category" scope="col"><b><?php echo($name); ?></b><input type="hidden" value="<?php echo($term->term_id); ?>" name="category-icon-color[<?php echo($name); ?>][id]" /></td>
 				<td class="manage-column column-icon" scope="col"><input type="hidden" value="<?php echo($category[$name]['icon']); ?>" name="category-icon-color[<?php echo($name); ?>][icon]" class="js-pick-icon-<?php echo($name); ?>" /><i class="fa fa-<?php echo($category[$name]['icon']); ?> admin-cat-icon js-icon-picker-open" aria-hidden="true" data-category="<?php echo($name); ?>"></i></td>
 				<td class="manage-column column-color" scope="col">
 					<input type="text" value="<?php echo($category[$name]['color']); ?>" name="category-icon-color[<?php echo($name); ?>][color]" class="my-color-field" />

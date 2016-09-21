@@ -24,14 +24,16 @@
 							</main>
 						</div>
 						
-						<div class="row blogastic-pagination">
-							<div class="col-xs-6 text-left"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i><?php next_posts_link( 'Older posts' ); ?></div>
-							<div class="col-xs-6 text-right"><?php previous_posts_link( 'Newer posts' ); ?><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></div>
-						</div>
+						<?php if(blogastic_pagination_numeric_posts_nav()): ?>
+							<div class="row blogastic-pagination">
+							<?php echo (blogastic_pagination_numeric_posts_nav()); ?>
+							</div>
+						<?php endif; ?>
+
 	
 					</div><!--.main-container-content-->
-				<div class="col-md-4 saidbar-container-content">
-	<!-- ovde da dodam sidebar -->
+				<div class="col-md-4 saidbar-container">
+					<?php get_sidebar(); ?>
 				</div><!--.saidbar-container-content-->
 			</div><!--.row-->	
 		</div><!--.container-->

@@ -43,3 +43,17 @@
 	// Activate HTML5 features.
 	add_theme_support('html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
 	
+	//Activate sidebar
+	add_action('widgets_init', 'blogastic_sidebar_init');
+	function blogastic_sidebar_init(){
+		register_sidebar(array(
+				'name' => esc_html__( 'Blogastic Sidebar', 'blogastictheme'),
+				'id' => 'blogastic-sidebar',
+				'description' => 'Right Sidebar',
+				'before_widget' => '<section id="%1$s" class="blogastic-widget %2$s">',
+				'after_widget' => '</section>',
+				'before_title' => '<h2 class="blogastic-widget-title">',
+				'after_title' => '</h2>'
+		));
+	}
+	

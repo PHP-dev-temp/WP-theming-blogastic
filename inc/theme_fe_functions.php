@@ -73,7 +73,7 @@
 		$categories = get_the_category();
 		if( !empty($categories) ){
 			foreach( $categories as $category ){
-				$catSetings = get_option('category-icon-color');				
+				$catSetings = get_option('category-icon-color');
 				$name = esc_html($category->name);
 				$link = esc_url(get_category_link($category->term_id));
 				$icon = isset($catSetings[$name]['icon']) ? $catSetings[$name]['icon'] : 'star';
@@ -163,17 +163,82 @@
 		$count = count($attachments)-1;		
 		for($i = 0; $i <= $count; $i++ ): 		
 			$active = ($i == 0 ? ' active' : '' );			
-			$n = ($i == $count ? 0 : $i+1);
-			$nextImg = wp_get_attachment_thumb_url($attachments[$n]->ID);
-			$p = ($i == 0 ? $count : $i-1);
-			$prevImg = wp_get_attachment_thumb_url($attachments[$p]->ID);			
+			//$n = ($i == $count ? 0 : $i+1);
+			//$nextImg = wp_get_attachment_thumb_url($attachments[$n]->ID);
+			//$p = ($i == 0 ? $count : $i-1);
+			//$prevImg = wp_get_attachment_thumb_url($attachments[$p]->ID);			
 			$output[$i] = array( 
 				'class'		=> $active, 
 				'url'		=> wp_get_attachment_url($attachments[$i]->ID),
-				'next_img'	=> $nextImg,
-				'prev_img'	=> $prevImg,
-				'caption'	=> $attachments[$i]->post_excerpt
+				//'next_img'	=> $nextImg,
+				//'prev_img'	=> $prevImg,
+				'caption'	=> ''//$attachments[$i]->post_excerpt
 			);		
 		endfor;		
 		return $output;		
+	}
+	
+	// Change default category widget
+	add_filter('wp_list_categories', 'add_span_cat_count');
+	function add_span_cat_count($links) {
+		$links = str_replace('</a> (', '</a><span>(', $links);
+		$links = str_replace(')', ')</span>', $links);
+	return $links;
+	}
+	
+	// Add pagination
+	function blogastic_pagination_numeric_posts_nav() {
+		if(is_singular()) return;
+		global $wp_query;
+		$output = '';
+		
+		/** Stop execution if there's only 1 page */
+		if($wp_query->max_num_pages <= 1) return;
+		
+		$paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
+		$max   = intval($wp_query->max_num_pages);
+		
+		/** Add current page to the array */
+		if ($paged >= 1) $links[] = $paged;
+		
+		/** Add the pages around the current page to the array */
+		if ($paged >= 3) {
+			$links[] = $paged - 1;
+			$links[] = $paged - 2;
+		}
+		if (($paged + 2) <= $max) {
+			$links[] = $paged + 2;
+			$links[] = $paged + 1;
+		}
+		$output .= '<div class="pagination"><ul>';
+		
+		/** Previous Post Link */
+		if (get_previous_posts_link()) $output .= '<li>' . get_previous_posts_link() . '</li>';
+		
+		/** Link to first page, plus ellipses if necessary */
+		if (!in_array(1, $links)) {
+			$class = 1 == $paged ? ' class="active"' : '';
+			$output .= '<li' . $class . '><a href="' . esc_url(get_pagenum_link(1)) . '">1</a></li>';
+			if (!in_array(2, $links)) $output .= '<li>…</li>';
+		}
+		
+		/** Link to current page, plus 2 pages in either direction if necessary */
+		sort($links);
+		foreach ((array) $links as $link) {
+			$class = $paged == $link ? ' class="active"' : '';
+			$output .= '<li' . $class . '><a href="' . esc_url(get_pagenum_link($link)) . '">' . $link . '</a></li>';
+		}
+		
+		/** Link to last page, plus ellipses if necessary */
+		if (! in_array($max, $links)) {
+			if (!in_array($max - 1, $links)) $output .= '<li>…</li>';
+			$class = $paged == $max ? ' class="active"' : '';
+			$output .= '<li' . $class . '><a href="' . esc_url(get_pagenum_link($max)) . '">' . $max . '</a></li>';
+		}
+		
+		/** Next Post Link */
+		if (get_next_posts_link()) $output .= '<li>' . get_next_posts_link() . '</li>';
+		$output .= '</ul></div>';
+		
+		return $output;
 	}

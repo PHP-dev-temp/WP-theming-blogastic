@@ -96,7 +96,7 @@ a.btn-readmore:hover, a.btn-readmore:focus{
 }
 .blogastic-pagination{
 	font-size: 18px;
-	padding: 25px 15px;
+	padding: 25px 0 15px;
 	background-color: white;
 	margin: 50px 0;
 	@include box-shadow(0, 0, 10px, rgba($gray, 0.4));
@@ -104,6 +104,41 @@ a.btn-readmore:hover, a.btn-readmore:focus{
 		color: $orange-dark;
 		margin: 0 10px;
 	}
+}
+.link-title a{
+	text-decoration: underline;
+}
+
+// Pagination
+.pagination{
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+.pagination li a,
+.pagination li a:hover,
+.pagination li.active a,
+.pagination li.disabled {
+    color: #fff;
+	font-size: px2em(14);
+    text-decoration:none;
+}
+.pagination li {
+    display: inline-block;
+	margin: 0 5px;
+}
+.pagination li a,
+.pagination li a:hover,
+.pagination li.active a,
+.pagination li.disabled {
+    background-color: $orange;
+    cursor: pointer;
+    padding: 0.45em;
+    @include border-radius(0.2em);
+}
+.pagination li a:hover,
+.pagination li.active a {
+    background-color: $orange-dark;
 }
 
 

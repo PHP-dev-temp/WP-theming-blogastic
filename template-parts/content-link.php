@@ -20,7 +20,7 @@
 	<div class="entry-content text-center">			
 		<?php 
 			$link = blogastic_grab_url();
-			the_title( '<h1 class="entry-title"><a href="' . $link . '" target="_blank">', '<div class="link-icon"><span class="sunset-icon sunset-link"></span></div></a></h1>'); 
+			the_title( '<h1 class="entry-title link-title"><a href="' . $link . '" target="_blank">', '<div class="link-icon"><span class="sunset-icon sunset-link"></span></div></a></h1>'); 
 		?>
 	</div><!-- .entry-content -->	
 	<footer class="entry-footer">
