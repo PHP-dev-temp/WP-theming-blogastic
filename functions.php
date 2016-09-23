@@ -5,6 +5,11 @@
 	===========================================
 		@package blogastictheme
 	*/	
+	
+	//@ini_set( 'upload_max_size' , '16M' );
+	//@ini_set( 'post_max_size', '16M');
+	//@ini_set( 'max_execution_time', '300' );
+	
 	require get_template_directory() . '/inc/enqueue.php';
 	require get_template_directory() . '/inc/admin-panel-functions.php';	
 	require get_template_directory() . '/inc/theme-support.php';

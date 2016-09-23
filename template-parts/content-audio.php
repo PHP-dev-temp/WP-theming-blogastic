@@ -8,7 +8,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('blogastic-format-audio'); ?>>
 	<header class="entry-header">	
-		<?php if( blogastic_get_attachment() ): ?>			
+		<?php if(blogastic_get_embedded_media(array('audio','iframe'))): ?>			
 			<div class="blogastic-audio-format">
 				<?php echo blogastic_get_embedded_media(array('audio','iframe')); ?>
 			</div>		

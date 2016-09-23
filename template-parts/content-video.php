@@ -8,7 +8,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('blogastic-format-video'); ?>>
 	<header class="entry-header">	
-		<?php if( blogastic_get_attachment() ): ?>			
+		<?php if(blogastic_get_embedded_media(array('video','iframe'))): ?>			
 			<div class="embed-responsive embed-responsive-16by9">
 				<?php echo blogastic_get_embedded_media(array('video','iframe')); ?>
 			</div>		
