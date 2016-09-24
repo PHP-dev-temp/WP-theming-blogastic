@@ -45,7 +45,7 @@
 					'short_ping'		=> false,
 					'echo'				=> true
 				);				
-				wp_list_comments( $args );
+				wp_list_comments($args);
 			?>			
 		</ol>		
 		<?php 
@@ -61,23 +61,23 @@
 	<?php 		
 		$fields = array(			
 			'author' =>
-				'<div class="form-group"><label for="author">' . __( 'Name', 'domainreference' ) . '</label> <span class="required">*</span> <input id="author" name="author" type="text" class="form-control" value="' . esc_attr( $commenter['comment_author'] ) . '" required="required" /></div>',
+				'<div class="form-group"><label for="author">' . __('Name', 'domainreference') . '</label> <span class="required">*</span> <input id="author" name="author" type="text" class="form-control" value="' . esc_attr($commenter['comment_author']) . '" required="required" /></div>',
 				
 			'email' =>
-				'<div class="form-group"><label for="email">' . __( 'Email', 'domainreference' ) . '</label> <span class="required">*</span><input id="email" name="email" class="form-control" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" required="required" /></div>',
+				'<div class="form-group"><label for="email">' . __('Email', 'domainreference') . '</label> <span class="required">*</span><input id="email" name="email" class="form-control" type="text" value="' . esc_attr( $commenter['comment_author_email']) . '" required="required" /></div>',
 				
 			'url' =>
-				'<div class="form-group last-field"><label for="url">' . __( 'Website', 'domainreference' ) . '</label><input id="url" name="url" class="form-control" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" /></div>'				
+				'<div class="form-group last-field"><label for="url">' . __('Website', 'domainreference') . '</label><input id="url" name="url" class="form-control" type="text" value="' . esc_attr($commenter['comment_author_url']) . '" /></div>'				
 		);
 		
 		$args = array(			
 			'class_submit' => 'btn btn-block btn-lg btn-comment',
-			'label_submit' => __( 'Submit Comment' ),
+			'label_submit' => __('Submit Comment'),
 			'comment_field' =>
-				'<div class="form-group"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label> <span class="required">*</span><textarea id="comment" class="form-control" name="comment" rows="4" required="required"></textarea></p>',
-			'fields' => apply_filters( 'comment_form_default_fields', $fields )			
+				'<div class="form-group"><label for="comment">' . _x('Comment', 'noun') . '</label> <span class="required">*</span><textarea id="comment" class="form-control" name="comment" rows="4" required="required"></textarea></p>',
+			'fields' => apply_filters('comment_form_default_fields', $fields)			
 		);		
-		comment_form( $args ); 		
+		comment_form($args); 		
 	?>	
 	</div>
 </div><!-- .comments-area -->

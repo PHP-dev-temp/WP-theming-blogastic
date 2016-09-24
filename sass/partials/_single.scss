@@ -1,10 +1,10 @@
+article.single-post{
+	background-color: white;
+	margin: 75px 0;
+	padding: 0 35px 35px;;
+	@include box-shadow(0, 0, 10px, rgba($gray, 0.4));
+}
 .single-post{
-	article{
-		background-color: white;
-		margin: 75px 0;
-		padding: 0 35px 35px;;
-		@include box-shadow(0, 0, 10px, rgba($gray, 0.4));
-	}
 	.entry-title{
 		background-color: $orange-dark;
 		color: white;
@@ -143,5 +143,6 @@ a.comment-reply-link {
 	background-color: $orange;
 	&:hover, &:focus{
 		background-color: $orange-dark;
+		color: white;
 	}
 }

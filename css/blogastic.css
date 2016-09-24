@@ -309,13 +309,14 @@ a.btn-readmore:hover, a.btn-readmore:focus {
   margin: 0 -15px 15px;
   font-weight: 300; }
 
-.single-post article {
+article.single-post {
   background-color: white;
   margin: 75px 0;
   padding: 0 35px 35px;
   -webkit-box-shadow: 0 0 10px rgba(133, 133, 133, 0.4);
   -moz-box-shadow: 0 0 10px rgba(133, 133, 133, 0.4);
   box-shadow: 0 0 10px rgba(133, 133, 133, 0.4); }
+
 .single-post .entry-title {
   background-color: #875a17;
   color: white;
@@ -414,6 +415,7 @@ a.comment-reply-link {
   color: white;
   background-color: #d98e1f; }
   .btn-comment:hover, .btn-comment:focus {
-    background-color: #875a17; }
+    background-color: #875a17;
+    color: white; }
 
 /*# sourceMappingURL=blogastic.css.map */
