@@ -14,7 +14,7 @@
 		<?php the_content(); ?>		
 	</div><!-- .entry-content -->
 	<footer class="entry-footer">
-		<?php echo blogastic_posted_footer(); ?>
+		<?php echo blogastic_footer_share_this(); ?>
 	</footer>	
 	<?php
 		if (comments_open()):

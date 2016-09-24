@@ -180,11 +180,19 @@
 	}
 	
 	// Change default category widget
-	add_filter('wp_list_categories', 'add_span_cat_count');
-	function add_span_cat_count($links) {
+	add_filter('wp_list_categories', 'blogastic_add_span_cat_count');
+	function blogastic_add_span_cat_count($links) {
 		$links = str_replace('</a> (', '</a><span>(', $links);
 		$links = str_replace(')', ')</span>', $links);
 	return $links;
+	}
+	
+	// Change default tags font size - Tag widget
+	add_filter('widget_tag_cloud_args', 'blogastic_tag_cloud_font_change');
+	function blogastic_tag_cloud_font_change($args){	
+		$args['smallest'] = 8;
+		$args['largest'] = 8;		
+		return $args;	
 	}
 	
 	// Add pagination
@@ -242,4 +250,30 @@
 		$output .= '</ul></div>';
 		
 		return $output;
+	}
+	
+	// Comments navigation
+	function blogastic_get_post_navigation(){	
+		if(get_comment_pages_count() > 1 && get_option('page_comments')):	
+			require(get_template_directory() . '/inc/templates/blogastic-comment-nav.php');	
+		endif;	
+	}
+	
+	// Share post
+	function blogastic_footer_share_this(){		
+		if(is_single()){			
+			$title = get_the_title();
+			$permalink = get_permalink();			
+			$twitterHandler = (get_option('twitter_handler') ? '&amp;via='.esc_attr(get_option('twitter_handler')) : '');
+			$twitter = 'https://twitter.com/intent/tweet?text=Hey! Read this: ' . $title . '&amp;url=' . $permalink . $twitterHandler .'';
+			$facebook = 'https://www.facebook.com/sharer/sharer.php?u=' . $permalink;
+			$google = 'https://plus.google.com/share?url=' . $permalink;
+			$shareContent = '<a class="share-link" href="' . $twitter . '" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>';
+			$shareContent .= '<a class="share-link" href="' . $facebook . '" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>';
+			$shareContent .= '<a class="share-link" href="' . $google . '" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>';
+			$output = '<div class="post-footer-container"><div class="row"><div class="col-xs-12 col-sm-6">'. blogastic_posted_meta() . get_the_tag_list('<div class="tags-list"><i class="fa fa-tags blogastic-tags" aria-hidden="true"></i>', ' ', '</div>') . '</div><div class="col-xs-12 col-sm-6 text-right">Share: '. $shareContent .'</div></div></div>';
+			return $output;		
+		}else{
+			return '';
+		}		
 	}

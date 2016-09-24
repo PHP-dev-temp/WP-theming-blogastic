@@ -23,6 +23,16 @@ article.single-post{
 		}
 	}
 }
+a.share-link{
+	display: inline-block;
+	margin-left: 10px;
+}
+.tagcloud a{	
+	display: inline-block;
+	background-color: $gray-light;
+	margin: 5px;
+	padding: 5px;
+}
 
 
 /* 
@@ -145,4 +155,11 @@ a.comment-reply-link {
 		background-color: $orange-dark;
 		color: white;
 	}
+}
+.comment-navigation{
+	margin-top: 40px;
+	padding: 15px;
+	border-bottom: 1px solid #E6E6E6;
+	border-top: 1px solid #E6E6E6;
+	background-color: $gray-light;
 }

@@ -47,7 +47,8 @@
 				);				
 				wp_list_comments($args);
 			?>			
-		</ol>		
+		</ol>			
+		<?php blogastic_get_post_navigation(); ?>		
 		<?php 
 			if(!comments_open() && get_comments_number()):
 		?>			 

@@ -330,6 +330,16 @@ article.single-post {
   max-width: 100%;
   height: auto; }
 
+a.share-link {
+  display: inline-block;
+  margin-left: 10px; }
+
+.tagcloud a {
+  display: inline-block;
+  background-color: #fafafa;
+  margin: 5px;
+  padding: 5px; }
+
 /* 
 	Comment section
 	------------------------------------------------
@@ -417,5 +427,12 @@ a.comment-reply-link {
   .btn-comment:hover, .btn-comment:focus {
     background-color: #875a17;
     color: white; }
+
+.comment-navigation {
+  margin-top: 40px;
+  padding: 15px;
+  border-bottom: 1px solid #E6E6E6;
+  border-top: 1px solid #E6E6E6;
+  background-color: #fafafa; }
 
 /*# sourceMappingURL=blogastic.css.map */
