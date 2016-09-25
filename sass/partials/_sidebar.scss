@@ -14,3 +14,24 @@
 	margin: 0 -15px 15px;
 	font-weight: 300;
 }
+.blogastic-custom-cat-widget{
+	padding: 0;
+	margin-bottom: 0;
+	li{
+		position: relative;
+		height: 32px;
+		list-style-type: none;
+	}
+	.widget-category-icon{
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: block;
+		width: 20px;
+		height: 20px;
+		color: white;
+		text-align: center;
+		line-height: 20px;
+		@include border-radius(10px);
+	}
+}

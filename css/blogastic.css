@@ -309,6 +309,28 @@ a.btn-readmore:hover, a.btn-readmore:focus {
   margin: 0 -15px 15px;
   font-weight: 300; }
 
+.blogastic-custom-cat-widget {
+  padding: 0;
+  margin-bottom: 0; }
+  .blogastic-custom-cat-widget li {
+    position: relative;
+    height: 32px;
+    list-style-type: none; }
+  .blogastic-custom-cat-widget .widget-category-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-clip: padding-box;
+    /* stops bg color from leaking outside the border: */ }
+
 article.single-post {
   background-color: white;
   margin: 75px 0;

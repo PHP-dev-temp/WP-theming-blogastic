@@ -72,13 +72,13 @@
 		$output = '';
 		$categories = get_the_category();
 		if( !empty($categories) ){
-			foreach( $categories as $category ){
+			foreach($categories as $category){
 				$catSetings = get_option('category-icon-color');
 				$name = esc_html($category->name);
 				$link = esc_url(get_category_link($category->term_id));
 				$icon = isset($catSetings[$name]['icon']) ? $catSetings[$name]['icon'] : 'star';
 				$color = isset($catSetings[$name]['color']) ? $catSetings[$name]['color'] : 'grey';
-				$output = '<a href="' . $link . '"><div class="cat-title-icon" style="background-color: ' . $color . '"><i class="fa fa-' . $icon . '" aria-hidden="true"></i></a>';
+				$output .= '<a href="' . $link . '"><div class="cat-title-icon" style="background-color: ' . $color . '"><i class="fa fa-' . $icon . '" aria-hidden="true"></i></a>';
 				break;
 			}
 		}
@@ -163,53 +163,26 @@
 		$output = array();
 		$count = count($attachments)-1;		
 		for($i = 0; $i <= $count; $i++ ): 		
-			$active = ($i == 0 ? ' active' : '' );			
-			//$n = ($i == $count ? 0 : $i+1);
-			//$nextImg = wp_get_attachment_thumb_url($attachments[$n]->ID);
-			//$p = ($i == 0 ? $count : $i-1);
-			//$prevImg = wp_get_attachment_thumb_url($attachments[$p]->ID);			
+			$active = ($i == 0 ? ' active' : '' );	
 			$output[$i] = array( 
 				'class'		=> $active, 
 				'url'		=> wp_get_attachment_url($attachments[$i]->ID),
-				//'next_img'	=> $nextImg,
-				//'prev_img'	=> $prevImg,
-				'caption'	=> ''//$attachments[$i]->post_excerpt
 			);		
 		endfor;		
 		return $output;		
-	}
-	
-	// Change default category widget
-	add_filter('wp_list_categories', 'blogastic_add_span_cat_count');
-	function blogastic_add_span_cat_count($links) {
-		$links = str_replace('</a> (', '</a><span>(', $links);
-		$links = str_replace(')', ')</span>', $links);
-	return $links;
-	}
-	
-	// Change default tags font size - Tag widget
-	add_filter('widget_tag_cloud_args', 'blogastic_tag_cloud_font_change');
-	function blogastic_tag_cloud_font_change($args){	
-		$args['smallest'] = 8;
-		$args['largest'] = 8;		
-		return $args;	
 	}
 	
 	// Add pagination
 	function blogastic_pagination_numeric_posts_nav() {
 		if(is_singular()) return;
 		global $wp_query;
-		$output = '';
-		
+		$output = '';		
 		/** Stop execution if there's only 1 page */
-		if($wp_query->max_num_pages <= 1) return;
-		
+		if($wp_query->max_num_pages <= 1) return;		
 		$paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
-		$max   = intval($wp_query->max_num_pages);
-		
+		$max   = intval($wp_query->max_num_pages);		
 		/** Add current page to the array */
-		if ($paged >= 1) $links[] = $paged;
-		
+		if ($paged >= 1) $links[] = $paged;		
 		/** Add the pages around the current page to the array */
 		if ($paged >= 3) {
 			$links[] = $paged - 1;
@@ -219,36 +192,30 @@
 			$links[] = $paged + 2;
 			$links[] = $paged + 1;
 		}
-		$output .= '<div class="pagination"><ul>';
-		
+		$output .= '<div class="pagination"><ul>';		
 		/** Previous Post Link */
-		if (get_previous_posts_link()) $output .= '<li>' . get_previous_posts_link() . '</li>';
-		
+		if (get_previous_posts_link()) $output .= '<li>' . get_previous_posts_link() . '</li>';		
 		/** Link to first page, plus ellipses if necessary */
 		if (!in_array(1, $links)) {
 			$class = 1 == $paged ? ' class="active"' : '';
 			$output .= '<li' . $class . '><a href="' . esc_url(get_pagenum_link(1)) . '">1</a></li>';
 			if (!in_array(2, $links)) $output .= '<li>…</li>';
-		}
-		
+		}		
 		/** Link to current page, plus 2 pages in either direction if necessary */
 		sort($links);
 		foreach ((array) $links as $link) {
 			$class = $paged == $link ? ' class="active"' : '';
 			$output .= '<li' . $class . '><a href="' . esc_url(get_pagenum_link($link)) . '">' . $link . '</a></li>';
-		}
-		
+		}		
 		/** Link to last page, plus ellipses if necessary */
 		if (! in_array($max, $links)) {
 			if (!in_array($max - 1, $links)) $output .= '<li>…</li>';
 			$class = $paged == $max ? ' class="active"' : '';
 			$output .= '<li' . $class . '><a href="' . esc_url(get_pagenum_link($max)) . '">' . $max . '</a></li>';
-		}
-		
+		}		
 		/** Next Post Link */
 		if (get_next_posts_link()) $output .= '<li>' . get_next_posts_link() . '</li>';
-		$output .= '</ul></div>';
-		
+		$output .= '</ul></div>';		
 		return $output;
 	}
 	
@@ -276,4 +243,27 @@
 		}else{
 			return '';
 		}		
+	}
+	
+	// Get all categories.
+	function blogastic_get_all_cat(){		
+		$catSetings = get_option('category-icon-color');
+		$terms = get_terms(array(
+			'taxonomy' => 'category',
+			'hide_empty' => false,
+		));
+		$category = array();
+		$output = '<ul class="blogastic-custom-cat-widget">';
+		foreach ($terms as $term){
+			if ($term->parent == 0){
+				$name = trim(esc_html($term->name));
+				$category[$name]['icon'] = isset($catSetings[$name]['icon']) ? $catSetings[$name]['icon'] : 'star';
+				$category[$name]['color'] = isset($catSetings[$name]['color']) ? $catSetings[$name]['color'] : 'grey';
+				$output .= '<li><a href="' . get_term_link($term) . '">' . $name . '(' . $term->count . ')';
+				$output .= '<i class="fa fa-' . $category[$name]['icon'] . ' widget-category-icon" style="background-color: ' . $catSetings[$name]['color'] . ';" aria-hidden="true"></i>';
+				$output .= '</a></li>';
+			}
+		}
+		$output .= '</ul>';
+		return $output;
 	}

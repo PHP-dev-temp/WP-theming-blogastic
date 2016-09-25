@@ -18,9 +18,6 @@
 						<div class="item<?php echo $attachment['class']; ?> background-image standard-featured" style="background-image: url(<?php echo $attachment['url']; ?>);">							
 							<div class="hide next-image-preview" data-image="<?php echo $attachment['next_img']; ?>"></div>
 							<div class="hide prev-image-preview" data-image="<?php echo $attachment['prev_img']; ?>"></div>
-							<div class="entry-excerpt image-caption">
-								<p><?php echo $attachment['caption']; ?></p>
-							</div>							
 						</div>					
 					<?php endforeach; ?>					
 				</div><!-- .carousel-inner -->				
