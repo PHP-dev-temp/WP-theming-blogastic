@@ -32,7 +32,7 @@
 					<div class="col-md-4">
 						<form id="ajax-contact" method="post" action="<?php echo admin_url('admin-ajax.php'); ?>" class="ajax-contact">
 							<div class="row">							
-								<h3 class="footer-title">Send me message</h3>	
+								<h3 class="footer-title">Send me a message</h3>	
 								<div class="col-xs-12">
 									<div class="form-group">
 										<input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
